@@ -1,7 +1,129 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adrian Hagerman - Portfolio</title>
+        <style>
+            body {
+                font-family: 'Georgia', serif;
+                background-color: #2b2d42;
+                color: #edf2f4;
+                margin: 0;
+                padding: 0;
+            }
+            header {
+                background-color: #8d99ae;
+                color: #2b2d42;
+                padding: 20px;
+                text-align: center;
+            }
+            header h1 {
+                margin: 0;
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+            nav {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            nav a {
+                text-decoration: none;
+                color: #edf2f4;
+                background-color: #ef233c;
+                padding: 10px 20px;
+                margin: 0 10px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            nav a:hover {
+                background-color: #d90429;
+            }
+            main {
+                padding: 20px;
+            }
+            section {
+                margin-bottom: 40px;
+            }
+            h2 {
+                color: #8d99ae;
+                font-size: 2rem;
+                border-bottom: 2px solid #ef233c;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            p {
+                line-height: 1.6;
+                font-size: 1.1rem;
+            }
+            .buttons {
+                margin-top: 20px;
+            }
+            .buttons a {
+                display: inline-block;
+                text-decoration: none;
+                color: #edf2f4;
+                background-color: #8d99ae;
+                padding: 10px 15px;
+                margin: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            .buttons a:hover {
+                background-color: #6c757d;
+            }
+            footer {
+                text-align: center;
+                padding: 10px;
+                background-color: #8d99ae;
+                color: #2b2d42;
+            }
+        </style>
+    </head>
     <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
+        <header>
+            <h1>Welcome to Adrian Hagerman's Portfolio</h1>
+            <p>Game Designer | Climbing Instructor | 3D Artist | Game Developer</p>
+        </header>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#contact">Contact</a>
+            <a href="#projects">Projects</a>
+        </nav>
+        <main>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    Hi, I'm Adrian Hagerman, a passionate game designer, climbing instructor, 
+                    3D artist, and game developer. I love creating interactive experiences 
+                    and bringing ideas to life through design and technology.
+                </p>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Email: adrian.hagerman@example.com</p>
+                <p>Follow me on:</p>
+                <ul>
+                    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                </ul>
+            </section>
+            <section id="projects">
+                <h2>Portfolio</h2>
+                <p>Check out my latest projects and CV below:</p>
+                <div class="buttons">
+                    <a href="cv.pdf" download>Download CV</a>
+                    <a href="portfolio.html" target="_blank">View Portfolio</a>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Adrian Hagerman. All rights reserved.</p>
+        </footer>
     </body>
 </html>
