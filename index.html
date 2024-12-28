@@ -12,26 +12,31 @@
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #8d99ae;
             color: #2b2d42;
             padding: 20px;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+
         .tabs {
             display: flex;
             justify-content: center;
             background-color: #8d99ae;
             padding: 10px 0;
         }
+
         .tab-button {
             padding: 10px 20px;
             margin: 0 10px;
@@ -42,19 +47,32 @@
             cursor: pointer;
             font-weight: bold;
         }
-        .tab-button:hover {
-            background-color: #d90429;
+
+            .tab-button:hover {
+                background-color: #d90429;
+            }
+
+            .tab-button.active {
+                background-color: #d90429;
+            }
+        .parallax {
+            background-image: url('https://source.unsplash.com/1600x900/?nature,forest'); /* Ersätt med din bildlänk */
+            height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-        .tab-button.active {
-            background-color: #d90429;
-        }
+
         .tab-content {
             display: none;
             padding: 20px;
         }
-        .tab-content.active {
-            display: block;
-        }
+
+            .tab-content.active {
+                display: block;
+            }
+
         footer {
             text-align: center;
             padding: 10px;
@@ -76,12 +94,20 @@
     <div id="about" class="tab-content active">
         <h2>About Me</h2>
         <p>
-            Hi, I'm Adrian Hagerman, a passionate game designer, climbing instructor, 
-            3D artist, and game developer. I love creating interactive experiences 
+            Hi, I'm Adrian Hagerman, a passionate game designer, climbing instructor,
+            3D artist, and game developer. I love creating interactive experiences
             and bringing ideas to life through design and technology.
         </p>
     </div>
     <div id="projects" class="tab-content">
+        <div class="parallax"></div>
+        <div id="projects" class="tab-content">
+            <h2>Portfolio</h2>
+            <!-- Resten av innehållet -->
+        </div>
+
+        <div class="parallax"></div>
+        <div class="content"></div>
         <h2>Portfolio</h2>
         <p>Check out my latest projects below:</p>
         <ul>
@@ -89,37 +115,39 @@
             <li><a href="project2.html" target="_blank">Project 2</a></li>
         </ul>
         <h3>3D Configurator</h3>
-        <iframe 
-            src="https://play.unity.com/en/games/e23923b9-d67d-4b49-8bb1-9483e50d8707/webgl-builds" 
-            width="100%" 
-            height="600" 
-            frameborder="0" 
-            allowfullscreen>
+        <iframe src="https://play.unity.com/en/games/e23923b9-d67d-4b49-8bb1-9483e50d8707/webgl-builds"
+                width="100%"
+                height="600"
+                frameborder="0"
+                allowfullscreen>
         </iframe>
     </div>
-    
-    <footer>
-        <p>&copy; 2024 Adrian Hagerman. All rights reserved.</p>
-    </footer>
-    <script>
-        function showTab(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            const buttons = document.querySelectorAll('.tab-button');
-            
-            contents.forEach(content => {
-                content.classList.remove('active');
-                if (content.id === tabId) {
-                    content.classList.add('active');
-                }
-            });
 
-            buttons.forEach(button => {
-                button.classList.remove('active');
-                if (button.textContent === tabId.charAt(0).toUpperCase() + tabId.slice(1)) {
-                    button.classList.add('active');
-                }
-            });
-        }
-    </script>
+
+
+
+        <footer>
+            <p>&copy; 2024 Adrian Hagerman. All rights reserved.</p>
+        </footer>
+        <script>
+            function showTab(tabId) {
+                const contents = document.querySelectorAll('.tab-content');
+                const buttons = document.querySelectorAll('.tab-button');
+
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    }
+                });
+
+                buttons.forEach(button => {
+                    button.classList.remove('active');
+                    if (button.textContent === tabId.charAt(0).toUpperCase() + tabId.slice(1)) {
+                        button.classList.add('active');
+                    }
+                });
+            }
+        </script>
 </body>
 </html>
