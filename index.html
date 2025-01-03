@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adrian Hagerman - Portfolio</title>
     <style>
+        /* Globala stilar */
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Helvetica', sans-serif;
             background-color: #2b2d42;
             color: #edf2f4;
             margin: 0;
@@ -14,70 +15,93 @@
         }
 
         header {
-            background-color: #8d99ae;
-            color: #2b2d42;
+            background-color: #6a0572; /* Lila */
+            color: #edf2f4;
             padding: 20px;
             text-align: center;
         }
 
-            header h1 {
-                margin: 0;
-                font-size: 2.5rem;
-            }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
 
-            header p {
-                font-size: 1.2rem;
-                margin-top: 5px;
-            }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
 
         .tabs {
             display: flex;
             justify-content: center;
-            background-color: #8d99ae;
+            background-color: #77c593; /* Grön */
             padding: 10px 0;
         }
 
         .tab-button {
             padding: 10px 20px;
             margin: 0 10px;
-            background-color: #ef233c;
+            background-color: #6a0572;
             color: #edf2f4;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-            .tab-button:hover {
-                background-color: #d90429;
-            }
+        .tab-button:hover {
+            background-color: #54044a; /* Mörkare lila */
+            transform: translateY(-2px);
+        }
 
-            .tab-button.active {
-                background-color: #d90429;
-            }
+        .tab-button:active {
+            transform: translateY(2px);
+        }
+
+        .tab-button.active {
+            background-color: #54044a;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Parallax och bakgrundsgrafik */
         .parallax {
-            background-image: url('https://source.unsplash.com/1600x900/?nature,forest'); /* Ersätt med din bildlänk */
-            height: 400px;
+            background-image: url('https://source.unsplash.com/1600x900/?pattern,abstract'); /* Ersätt med din flatgraphic-länk */
+            height: 300px;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-
-            .tab-content.active {
-                display: block;
-            }
-
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #8d99ae;
+            background-color: #77c593;
             color: #2b2d42;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -93,61 +117,66 @@
     </div>
     <div id="about" class="tab-content active">
         <h2>About Me</h2>
-        <p>
-            Hi, I'm Adrian Hagerman, a passionate game designer, climbing instructor,
-            3D artist, and game developer. I love creating interactive experiences
-            and bringing ideas to life through design and technology.
-        </p>
+        <p class="fade-in">Hi, I'm Adrian Hagerman, a passionate game designer, climbing instructor, 
+            3D artist, and game developer. I love creating interactive experiences 
+            and bringing ideas to life through design and technology.</p>
     </div>
     <div id="projects" class="tab-content">
         <div class="parallax"></div>
-        <div id="projects" class="tab-content">
-            <h2>Portfolio</h2>
-            <!-- Resten av innehållet -->
-        </div>
-
-        <div class="parallax"></div>
-        <div class="content"></div>
         <h2>Portfolio</h2>
-        <p>Check out my latest projects below:</p>
+        <p class="fade-in">Check out my latest projects below:</p>
         <ul>
-            <li><a href="project1.html" target="_blank">Project 1</a></li>
-            <li><a href="project2.html" target="_blank">Project 2</a></li>
+            <li class="fade-in"><a href="project1.html" target="_blank">Project 1</a></li>
+            <li class="fade-in"><a href="project2.html" target="_blank">Project 2</a></li>
         </ul>
-        <h3>3D Configurator</h3>
-        <iframe src="https://play.unity.com/en/games/e23923b9-d67d-4b49-8bb1-9483e50d8707/webgl-builds"
-                width="100%"
-                height="600"
-                frameborder="0"
-                allowfullscreen>
+        <h3 class="fade-in">3D Configurator</h3>
+        <iframe 
+            src="https://play.unity.com/en/games/e23923b9-d67d-4b49-8bb1-9483e50d8707/webgl-builds" 
+            width="100%" 
+            height="600" 
+            frameborder="0" 
+            allowfullscreen>
         </iframe>
     </div>
+    <footer>
+        <p>&copy; 2024 Adrian Hagerman. All rights reserved.</p>
+    </footer>
+    <script>
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            contents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === tabId) {
+                    content.classList.add('active');
+                }
+            });
 
+            buttons.forEach(button => {
+                button.classList.remove('active');
+                if (button.textContent === tabId.charAt(0).toUpperCase() + tabId.slice(1)) {
+                    button.classList.add('active');
+                }
+            });
 
+            // Aktivera fade-in på nya element
+            const visibleElements = document.querySelectorAll('.tab-content.active .fade-in');
+            visibleElements.forEach((el, index) => {
+                setTimeout(() => el.classList.add('visible'), index * 100);
+            });
+        }
 
-
-        <footer>
-            <p>&copy; 2024 Adrian Hagerman. All rights reserved.</p>
-        </footer>
-        <script>
-            function showTab(tabId) {
-                const contents = document.querySelectorAll('.tab-content');
-                const buttons = document.querySelectorAll('.tab-button');
-
-                contents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.id === tabId) {
-                        content.classList.add('active');
-                    }
-                });
-
-                buttons.forEach(button => {
-                    button.classList.remove('active');
-                    if (button.textContent === tabId.charAt(0).toUpperCase() + tabId.slice(1)) {
-                        button.classList.add('active');
-                    }
-                });
-            }
-        </script>
+        // Scroll-effekt
+        document.addEventListener('scroll', () => {
+            const fadeElements = document.querySelectorAll('.fade-in:not(.visible)');
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
